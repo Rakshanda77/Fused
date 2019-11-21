@@ -67,19 +67,16 @@ callig one function which will display current location of user.
 //Main function looks like this.
 
 
-@Override
 
-    protected void onCreate(Bundle savedInstanceState) {
+protected void onCreate(Bundle savedInstanceState) {
     
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_main);
         
-        
-fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
-
-GetlastLocation();
+        GetlastLocation();
 
 }
 
