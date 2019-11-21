@@ -66,16 +66,21 @@ callig one function which will display current location of user.
 
 //Main function looks like this.
 
+
 @Override
+
     protected void onCreate(Bundle savedInstanceState) {
     
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_main);
         
+        
 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
+
 GetlastLocation();
+
 }
 
 So Basically we will make changes in three functions:
@@ -88,12 +93,12 @@ By adding this we need to give some permissions to get location of device.
 
 
 
-
-
 private void GetlastLocation() {
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != 
         
-        PackageManager.PERMISSION_GRANTED
+
+PackageManager.PERMISSION_GRANTED
                
                
                && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
