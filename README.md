@@ -115,9 +115,6 @@ By adding this we need to give some permissions to get location of device.
                 
                     mlocation = location;
                     
-//                    Toast.makeText(getApplicationContext(), mlocation.getLatitude()+ "" + mlocation.getLongitude(),
-//                            Toast.LENGTH_SHORT).show();
-
                     SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                             .findFragmentById(R.id.map);
                             
