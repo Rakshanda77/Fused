@@ -68,7 +68,7 @@ callig one function which will display current location of user.
 
 
 
-protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
     
         super.onCreate(savedInstanceState);
         
@@ -90,7 +90,7 @@ By adding this we need to give some permissions to get location of device.
 
 
 
-private void GetlastLocation() {
+        private void GetlastLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != 
        
@@ -134,10 +134,13 @@ private void GetlastLocation() {
     
     
     
-@Override
+
+
+    @Override
+
     public void onMapReady(GoogleMap googleMap) {
     
-        mMap = googleMap;
+    mMap = googleMap;
         
         //used to show langitude on map
         
