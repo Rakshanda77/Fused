@@ -66,24 +66,24 @@ callig one function which will display current location of user.
 
 //Main function looks like this.
 
-
-protected void onCreate(Bundle savedInstanceState) {
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 GetlastLocation();
 }
 
-
 So Basically we will make changes in three functions:
 
-Step6:
-In the getLastLocation() function
+Step6: In the getLastLocation() function
 
 We are simply trying to call getLastLocation of device.
 
-By adding this we need to give some permissions 
-to get location of device.
+By adding this we need to give some permissions to get location of device.
+
+
+
 
 
 private void GetlastLocation() {
@@ -115,6 +115,8 @@ private void GetlastLocation() {
     This function basically used to show few things on map.
     Like Title.
     To zoom the location.
+    
+    
     
 @Override
     public void onMapReady(GoogleMap googleMap) {
