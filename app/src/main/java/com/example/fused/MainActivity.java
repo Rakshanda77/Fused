@@ -27,7 +27,7 @@ public class MainActivity extends FragmentActivity implements
     Location mlocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int request_code=101;
-    private GoogleMap mMap;
+   private GoogleMap mMap;
 
 
     @Override
@@ -41,7 +41,7 @@ GetlastLocation();
     private void GetlastLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            
+
             ActivityCompat.requestPermissions(this, new String[]
                     {Manifest.permission.ACCESS_FINE_LOCATION}, request_code);
             return;
@@ -52,14 +52,15 @@ GetlastLocation();
             public void onSuccess(Location location) {
                 if(location != null){
                     mlocation = location;
-                    Toast.makeText(getApplicationContext(), mlocation.getAltitude() + "" + mlocation.getLongitude(),
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), mlocation.getLatitude()+ "" + mlocation.getLongitude(),
+//                            Toast.LENGTH_SHORT).show();
 
                     SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                             .findFragmentById(R.id.map);
                     supportMapFragment.getMapAsync(MainActivity.this);
                 }
             }
+
         });
     }
 
@@ -67,13 +68,13 @@ GetlastLocation();
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         //used to show langitude on map
-        LatLng latLng=new LatLng(mlocation.getLatitude(),mlocation.getLongitude());
+        LatLng latLng = new LatLng(mlocation.getLatitude(),mlocation.getLongitude());
         //use to show marker
-        MarkerOptions markerOptions=new MarkerOptions().position(latLng).title("You are here");
+        MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("You are here");
         //by making animate factory
         // used to zoom camera on your location
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 6));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,4));
         googleMap.addMarker(markerOptions);
 
         // Add a marker in Sydney and move the camera
@@ -85,7 +86,7 @@ GetlastLocation();
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case request_code:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     GetlastLocation();
                 }
                 break;
