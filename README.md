@@ -58,12 +58,14 @@ Step 3: In activity_main.xml file edit the front-end by just adding a fragment i
        
        //FusedLocationProviderClien used to get last location of device.
        
-Step5:In main function we are just getting last location of user and
+       
+Step5: In main function we are just getting last location of user.
 
 callig one function which will display current location of user.
        
 
 //Main function looks like this.
+
 
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 GetlastLocation();
 }
+
 
 So Basically we will make changes in three functions:
 
