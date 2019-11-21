@@ -68,9 +68,13 @@ callig one function which will display current location of user.
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
+    
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
+        
 fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
 GetlastLocation();
 }
 
@@ -91,20 +95,28 @@ private void GetlastLocation() {
                 && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this, new String[]
+            
                     {Manifest.permission.ACCESS_FINE_LOCATION}, request_code);
+                    
             return;
         }
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
+        
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
+        
             @Override
             public void onSuccess(Location location) {
+            
                 if(location != null){
+                
                     mlocation = location;
+                    
 //                    Toast.makeText(getApplicationContext(), mlocation.getLatitude()+ "" + mlocation.getLongitude(),
 //                            Toast.LENGTH_SHORT).show();
 
                     SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                             .findFragmentById(R.id.map);
+                            
                     supportMapFragment.getMapAsync(MainActivity.this);
                 }
             }
@@ -120,18 +132,30 @@ private void GetlastLocation() {
     
 @Override
     public void onMapReady(GoogleMap googleMap) {
+    
         mMap = googleMap;
+        
         //used to show langitude on map
+        
         LatLng latLng = new LatLng(mlocation.getLatitude(),mlocation.getLongitude());
+        
         //use to show marker
+        
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("You are here");
+        
         //by making animate factory
+        
         // used to zoom camera on your location
+        
         googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+        
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,4));
+        
         googleMap.addMarker(markerOptions);
+        
 
         // Add a marker in Sydney and move the camera
+        
         mMap.setMyLocationEnabled(true);
 
 
@@ -140,12 +164,20 @@ private void GetlastLocation() {
     
     
     just made a simple call to our current location in switch case:
+    
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    
         switch (requestCode) {
+        
             case request_code:
+            
                 if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                
                     GetlastLocation();
+                    
                 }
+                
                 break;
+                
         }
     }
