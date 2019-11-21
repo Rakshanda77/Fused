@@ -93,12 +93,10 @@ By adding this we need to give some permissions to get location of device.
 private void GetlastLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != 
-        
-
-PackageManager.PERMISSION_GRANTED
-               
-               
-               && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+       
+       PackageManager.PERMISSION_GRANTED
+              
+              && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this, new String[]
             
