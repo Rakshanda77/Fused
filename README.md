@@ -76,9 +76,9 @@ protected void onCreate(Bundle savedInstanceState) {
         
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
-        GetlastLocation();
+        GetlastLocation();}
 
-}
+
 
 So Basically we will make changes in three functions:
 
